@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather app</title>
+        <!-- Tailwindcss -->
+        <link rel="stylesheet" href="css/tailwind.css">
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="css/modal.css" type="text/css" media="all" />
+    </head>
+    <body>
+        <main>
+            <!-- weather details -->
+            <section id="w-details" class="gradient">
+                    <!-- search bar -->
+                    <form id="search-form">
+                        <div class="search-div">
+                            <input type="text" id="search" placeholder="Search city.." />
+                            <button type="submit" class="search-icon">
+                                <img src="img/search.svg" class="w-5 h-5"/>
+                            </button>
+                        </div>
+                    </form>
+                <!-- temperature -->
+                <div>
+                    <img id="icon" class="w-20 h-20 m-auto" />
+                    <div class="flex justify-center my-4">
+                        <div>
+                            <p id="temp" class="text-white text-7xl">0</p>
+                            <p class="desc text-lg text-white font-medium ml-3"></p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center mb-2">
+                        <p class="text-2xl text-white m-auto font-medium text-center city">City Name</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between mt-12 lg:px-10">
+                    <div class="flex justify-between">
+                        <div class="flex justify-between items-center">
+                            <img src="img/humidity.svg" class="w-10"/>
+                            <div>
+                                <p class="text-white humidity">0</p>
+                                <p class="text-white text-base">Humidity</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between mr-2">
+                        <div class="flex justify-between items-center mr-2">
+                            <img src="img/air.svg" class="w-10"/>
+                        </div>
+                        <div>
+                            <p class="text-white wind">0</p>
+                            <p class="text-white text-base">Wind speed</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Exitra details -->
+            <section class="rounded-xl mt-4 max-h-max">
+                    <!-- Extra detail -->
+                    <div class="rounded-xl border-2 border-white gradient bg-white">
+                        <nav class="px-4 py-2 border-b-2 border-white">
+                            <p class="text-xl text-white">Details</p>
+                        </nav>
+                        <table class="w-full">
+                            <tbody>
+                                <tr class="w-full border-b-2">
+                                    <td class="w-[50%] py-1 border-r-2 border-white">
+                                        <div class="w-full flex justify-between items-center px-1 lg:px-10">
+                                            <div>
+                                                <p class="text-white opacity-50 text-sm">Wind speed</p>
+                                                <p class="text-white text-lg wind">0</p>
+                                            </div>
+                                            <div class="h-8 w-8 flex items-center">
+                                                <img src="img/air.svg"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="w-[50%] py-1 border-white">
+                                        <div class="w-full flex justify-between items-center px-1 lg:px-10">
+                                            <div>
+                                                <p class="text-white opacity-50 text-sm">Real feel</p>
+                                                <p class="text-white text-lg realfeel">0</p>
+                                            </div>
+                                            <div class="h-4 w-4 flex items-center">
+                                                <img src="img/thermometer.svg"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="w-full">
+                                    <td class="w-[50%] py-1 border-r-2 border-white">
+                                        <div class="w-full flex justify-between items-center px-1 lg:px-10">
+                                            <div>
+                                                <p class="text-white opacity-50 text-sm">Clouds</p>
+                                                <p class="text-white text-lg clouds">0</p>
+                                            </div>
+                                            <div class="h-8 w-8 flex items-center">
+                                                <img src="img/cloud.svg"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="w-[50%] py-1 border-white">
+                                        <div class="w-full flex justify-between items-center px-1 lg:px-10">
+                                            <div>
+                                                <p class="text-white opacity-50 text-sm">Pressure</p>
+                                                <p class="text-white text-lg pressure">0</p>
+                                            </div>
+                                            <div class="h-8 w-8 flex items-center">
+                                                <img src="img/speed.svg"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </section>
+        </main>
+        
+
+
+        <div id="modal">
+            <div>
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow">
+                    <!-- Modal header -->
+                    <div class="modal-header">
+                        <h3 class="text-xl font-semibold text-gray-900">
+                            Select your city
+                        </h3>
+                        <button type="button" id="cutbtn" data-modal-hide="defaultModal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="py-6 space-y-6" id="modal_body"></div>
+                    <!-- Modal footer -->
+                    <div class="flex items-center justify-between py-4  border-t rounded-b">
+                        <div></div><!-- Don't remove it -->
+                        <div class="flex">
+                            <button id="cancel" class="mr-2 px-4 py-2 rounded-xl">cancel</button>
+                            <button id="select" class="px-4 py-2 rounded-xl">Select</button>
+                        <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/sweatAlert.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/script.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/actions.js" type="text/javascript" charset="utf-8"></script>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
