@@ -1,5 +1,3 @@
-https://dienesh89.github.io/Weather-app/)
-
 # Weather App 🌥 By Vanilla JS and Tailwindcss 
 
 I have built `Weather App` By `Vanilla JS` and `Tailwind CSS styled components` used for styling to my weather app now days used frequently to see weather of your country
@@ -20,7 +18,7 @@ I have built `Weather App` By `Vanilla JS` and `Tailwind CSS styled components` 
 * URL: `https://api.openweathermap.org/data/2.5/weather?q={CITY_NAME}&appid={API_KEY}`
 
 ## 🌥️ Icons & Font
-* [Icons & other Assets:](https://github.com/HamzaZaidiX/weather-app/tree/main/public/icons)
+* [Icons & other Assets:](https://github.com/Dienesh89/Weather-app/tree/main/img)
 * Font => Tailwindcss's Default Font
 
 
